@@ -5,7 +5,8 @@ class Enigma
 
   def encrypt(message, key = key_generator, date = Today.now)
     encrypt = {}
-    encrypt[:encryption] = Encrypt.new(message, key, clean_date(date))
+    encryption = Encrypt.new(message, key, clean_date(date))
+    encrypt[:encryption] = encryption.encrypted_message
     encrypt[:key] = key
     encrypt[:date] = clean_date(date)
     encrypt
