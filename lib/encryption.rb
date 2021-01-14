@@ -8,11 +8,10 @@ class Encryption
   end
 
   def encryption_shifts
-    encryption_shifts = {}
-    encryption_shifts[:A] = ((@key[0,2].to_i) + offset(-4))
-    encryption_shifts[:B] = ((@key[1,2].to_i) + offset(-3))
-    encryption_shifts[:C] = ((@key[2,2].to_i) + offset(-2))
-    encryption_shifts[:D] = ((@key[3,2].to_i) + offset(-1))
+    encryption_shifts = {A: 0, B: 0, C: 0, D: 0}
+    encryption_shifts.each_with_index do |(alpha, shift_number), index|
+      encryption_shifts[alpha] = ((@key[index,2].to_i) + offset(index-4))
+    end
     encryption_shifts
   end
 
