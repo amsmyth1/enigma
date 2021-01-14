@@ -26,13 +26,25 @@ class EncryptionTest < MiniTest::Test
     assert_equal 73, @encryption.encryption_shifts[:C]
     assert_equal 20, @encryption.encryption_shifts[:D]
   end
-  #
-  # def test_it_can_assign_text_shift_case_characters
-  #   assert_equal ["h", "o", "r"], @encryption.shift_case_characters[:A]
-  #   assert_equal ["e", " ", "l"], @encryption.shift_case_characters[:B]
-  #   assert_equal ["l", "w", "d"], @encryption.shift_case_characters[:C]
-  #   assert_equal ["l", "o"], @encryption.shift_case_characters[:D]
-  # end
+
+  def test_alpha
+    assert_equal :A, @encryption.alpha("h", 0)
+    assert_equal :B, @encryption.alpha("e", 1)
+    assert_equal :C, @encryption.alpha("l", 2)
+    assert_equal :D, @encryption.alpha("l", 3)
+    assert_equal :A, @encryption.alpha("o", 4)
+    assert_equal :B, @encryption.alpha(" ", 5)
+    assert_equal :C, @encryption.alpha("w", 6)
+    assert_equal :D, @encryption.alpha("o", 7)
+  end
+
+  def test_it_can_assign_text_shift_case_characters
+    skip
+    assert_equal ["h", "o", "r"], @encryption.shift_case_characters
+    assert_equal ["e", " ", "l"], @encryption.shift_case_characters[:B]
+    assert_equal ["l", "w", "d"], @encryption.shift_case_characters[:C]
+    assert_equal ["l", "o"], @encryption.shift_case_characters[:D]
+  end
   #
   # def test_encrypted_characters #keder ohulw
   #   assert_equal ["k", "r", "u"], @encryption.encrypted_characters[:A]
