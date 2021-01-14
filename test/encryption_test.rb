@@ -20,28 +20,28 @@ class EncryptionTest < MiniTest::Test
   end
 
   def test_it_generates_keys_and_offsets
-    assert_equal [:A, :B, :C, :D], @enigma.encryption_shifts.keys
-    assert_equal [02, 1], @enigma.encryption_shifts[:A]
-    assert_equal [02, 1], @enigma.encryption_shifts[:B]
-    assert_equal [02, 1], @enigma.encryption_shifts[:C]
-    assert_equal [02, 1], @enigma.encryption_shifts[:D]
+    assert_equal [:A, :B, :C, :D], @encryption.encryption_shifts.keys
+    assert_equal 3, @encryption.encryption_shifts[:A]
+    assert_equal 27, @encryption.encryption_shifts[:B]
+    assert_equal 73, @encryption.encryption_shifts[:C]
+    assert_equal 20, @encryption.encryption_shifts[:D]
   end
-
-  def test_it_can_assign_text_shift_case_characters
-    assert_equal ["h", "o", "r"], @enigma.shift_case_characters[:A]
-    assert_equal ["e", " ", "l"], @enigma.shift_case_characters[:B]
-    assert_equal ["l", "w", "d"], @enigma.shift_case_characters[:C]
-    assert_equal ["l", "o"], @enigma.shift_case_characters[:D]
-  end
-
-  def test_encrypted_characters #keder ohulw
-    assert_equal ["k", "r", "u"], @enigma.encrypted_characters[:A]
-    assert_equal ["e", " ", "l"], @enigma.encrypted_characters[:B]
-    assert_equal ["d", "o", "w"], @enigma.encrypted_characters[:C]
-    assert_equal ["e", "r"], @enigma.encrypted_characters[:D]
-  end
-
-  def test_encrypted_message
-    assert_equal "keder ohulw", @encryption.encrypted_message
-  end
-end 
+  #
+  # def test_it_can_assign_text_shift_case_characters
+  #   assert_equal ["h", "o", "r"], @encryption.shift_case_characters[:A]
+  #   assert_equal ["e", " ", "l"], @encryption.shift_case_characters[:B]
+  #   assert_equal ["l", "w", "d"], @encryption.shift_case_characters[:C]
+  #   assert_equal ["l", "o"], @encryption.shift_case_characters[:D]
+  # end
+  #
+  # def test_encrypted_characters #keder ohulw
+  #   assert_equal ["k", "r", "u"], @encryption.encrypted_characters[:A]
+  #   assert_equal ["e", " ", "l"], @encryption.encrypted_characters[:B]
+  #   assert_equal ["d", "o", "w"], @encryption.encrypted_characters[:C]
+  #   assert_equal ["e", "r"], @encryption.encrypted_characters[:D]
+  # end
+  #
+  # def test_encrypted_message
+  #   assert_equal "keder ohulw", @encryption.encrypted_message
+  # end
+end
