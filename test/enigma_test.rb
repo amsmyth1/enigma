@@ -9,7 +9,7 @@ class EnigmaTest < MiniTest::Test
     @text = "hello world"
     @key = "02715"
     @date = "040895"
-    @enigma = Enigma.new(@message, @key, @date)
+    @enigma = Enigma.new
   end
 
   def test_it_exists
