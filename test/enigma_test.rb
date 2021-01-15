@@ -46,4 +46,10 @@ class EnigmaTest < MiniTest::Test
     assert_equal expect, @enigma.encrypt(@text, @key, @date)
     assert_equal expect2, @enigma.encrypt(text)
   end
+
+  def test_it_can_decrypt_a_message
+    encrypted_message = "keder ohulw"
+
+    assert_equal "hello world", @enigmas.decrypt_message(encrypted_message, @key, @date)
+  end
 end
