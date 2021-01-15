@@ -57,7 +57,7 @@ class EnigmaTest < MiniTest::Test
       date:       "040895"}
 
 
-    assert_equal "hello world", @enigmas.decrypt_message(encrypted_message, @key, @date)
-    assert_equal expect, @enigmas.decrypt(encrypted_message, @key, @date)
+    assert_equal "hello world", @enigma.decrypt_message(encrypted_message, @key, @date)
+    assert_equal expect, @enigma.decrypt(encrypted_message, @key, @date)
   end
 end

@@ -1,5 +1,6 @@
 require 'date'
 require './lib/encryption'
+require './lib/decryption'
 
 class Enigma
 
