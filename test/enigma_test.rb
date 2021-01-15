@@ -32,7 +32,6 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_it_can_encrypt_a_message
-    skip
-    assert_equal "keder ohulw", (@enigma.encrypt(@test, @key, @date))[:encryption]
+    assert_equal "keder ohulw", @enigma.encrypt(@text, @key, @date)
   end
 end

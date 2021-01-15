@@ -1,15 +1,10 @@
+require './lib/encryption'
+
 class Enigma
 
-  def initialize
-  end
-
   def encrypt(message, key = key_generator, date = Today.now)
-    encrypt = {}
-    encryption = Encrypt.new(message, key, clean_date(date))
-    encrypt[:encryption] = encryption.encrypted_message
-    encrypt[:key] = key
-    encrypt[:date] = clean_date(date)
-    encrypt
+    encrpytion = Encryption.new(message, key, date)
+    encrpytion.encrypted_message
   end
 
   def clean_date(date)
