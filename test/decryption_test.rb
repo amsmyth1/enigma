@@ -18,14 +18,6 @@ class DecryptionTest < MiniTest::Test
     assert_equal "040895", @decryption.date
   end
 
-  def test_alphabet
-    skip #do we need to test for a constant?
-    assert_equal "a", @decryption.alphabet.first
-    assert_equal String, @decryption.alphabet.first.class
-    assert_equal " ", @decryption.alphabet.last
-    assert_equal 27, @decryption.alphabet.count
-  end
-
   def test_it_generates_keys_and_offsets
     assert_equal [:A, :B, :C, :D], @decryption.decryption_shifts.keys
     assert_equal 3, @decryption.decryption_shifts[:A]
@@ -52,7 +44,7 @@ class DecryptionTest < MiniTest::Test
     assert_equal ["e", "h"], @decryption.shift_case_characters[:D]
   end
 
-  def test_encrypted_message
-    assert_equal "keder ohulw", @decryption.encrypted_message
+  def test_decrypted_message
+    assert_equal "hello world", @decryption.decrypted_message
   end
 end
