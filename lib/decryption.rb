@@ -22,4 +22,9 @@ class Decryption
     (date.to_i * date.to_i).to_s[x].to_i
   end
 
+  def alpha(character, index)
+    shifts = [:A, :B, :C, :D]
+    alpha = shifts[(index % 4)]
+  end
+
 end

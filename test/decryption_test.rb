@@ -35,15 +35,14 @@ class DecryptionTest < MiniTest::Test
   end
 
   def test_alpha
-    skip
-    assert_equal :A, @decryption.alpha("h", 0)
+    assert_equal :A, @decryption.alpha("k", 0)
     assert_equal :B, @decryption.alpha("e", 1)
-    assert_equal :C, @decryption.alpha("l", 2)
+    assert_equal :C, @decryption.alpha("d", 2)
     assert_equal :D, @decryption.alpha("l", 3)
-    assert_equal :A, @decryption.alpha("o", 4)
+    assert_equal :A, @decryption.alpha("e", 4)
     assert_equal :B, @decryption.alpha(" ", 5)
-    assert_equal :C, @decryption.alpha("w", 6)
-    assert_equal :D, @decryption.alpha("o", 7)
+    assert_equal :C, @decryption.alpha("o", 6)
+    assert_equal :D, @decryption.alpha("h", 7)
   end
 
   def test_it_can_assign_text_shift_case_characters
