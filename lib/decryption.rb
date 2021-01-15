@@ -37,7 +37,7 @@ class Decryption
 
   def decrypted_message
     decrypted_message_characters = []
-    @message.chars.each_with_index do |character, index|
+    @message.downcase.chars.each_with_index do |character, index|
       use_index = index + 4
       decrypted_index = ((@alphabet.find_index(character)) - (decryption_shifts[(alpha(character, use_index))]))
       decrypted_message_characters << (@alphabet[(decrypted_index % 27)])
