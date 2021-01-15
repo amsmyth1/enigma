@@ -2,6 +2,8 @@ require './lib/enigma'
 require './lib/encryption'
 require './lib/decryption'
 
+user_input = UserInput.new(ARGV[0], ARGV[1])
+user_input.encrypt
 
 user_message = File.open(ARGV[0], "r")
 message = user_message.read.strip

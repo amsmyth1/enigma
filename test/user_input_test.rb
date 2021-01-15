@@ -25,4 +25,8 @@ class UserInputTest < MiniTest::Test
     keys.stubs(:key_generator).returns("00121")
     assert_equal "00121", keys.key_generator
   end
+
+  def test_it_can_encrypt_a_message_and_output
+    assert_equal 1, @user_input.encrypt
+  end
 end
