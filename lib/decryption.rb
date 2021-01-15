@@ -27,4 +27,12 @@ class Decryption
     alpha = shifts[(index % 4)]
   end
 
+  def shift_case_characters
+    shift_case_characters = Hash.new([])
+    @message.chars.each_with_index do |character, index|
+      shift_case_characters[alpha(character, index)] += [character]
+    end
+    shift_case_characters
+  end
+
 end
