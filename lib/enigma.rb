@@ -16,6 +16,19 @@ class Enigma
     encrpytion.encrypted_message
   end
 
+  def decrypt(message, key = key_generator, date = Time.now)
+    decrypt = {
+      :decryption => decrypt_message(message, key, clean_date(date)),
+      :key => key,
+      :date => clean_date(date)
+    }
+  end
+
+  def decrypt_message(message, key, date)
+    decrpytion = Decryption.new(message, key, date)
+    decrpytion.decrypted_message
+  end
+
   def clean_date(date)
     if date.class == Time
       date.strftime('%d%m%g')
