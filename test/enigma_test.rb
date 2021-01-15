@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'mocha/minitest'
+require './test/test_helper'
 require './lib/enigma'
 
 class EnigmaTest < MiniTest::Test
@@ -18,7 +16,7 @@ class EnigmaTest < MiniTest::Test
 
   def test_it_can_clean_date
     date = Time.now
-    assert_equal "14012021", @enigma.clean_date(date)
+    assert_equal "140121", @enigma.clean_date(date)
   end
 
   def test_it_can_generate_key
@@ -32,7 +30,20 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_it_can_encrypt_a_message
-    skip
-    assert_equal "keder ohulw", (@enigma.encrypt(@test, @key, @date))[:encryption]
+    expect = {
+      encryption: "keder ohulw",
+      key:        "02715",
+      date:       "040895"}
+
+    text = "alexa morales smyth"
+    expect2 = {
+      encryption: "u rzuozqkpygloeorhu",
+      key:        "70901",
+      date:       "140121"}
+
+    @enigma.stubs(:key_generator).returns("70901")
+    assert_equal "keder ohulw", @enigma.encrypt_message(@text, @key, @date)
+    assert_equal expect, @enigma.encrypt(@text, @key, @date)
+    assert_equal expect2, @enigma.encrypt(text)
   end
 end

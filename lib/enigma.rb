@@ -1,20 +1,26 @@
+require 'date'
+require './lib/encryption'
+
 class Enigma
 
-  def initialize
+  def encrypt(message, key = key_generator, date = Time.now)
+    encrypt = {
+      :encryption => encrypt_message(message, key, clean_date(date)),
+      :key => key,
+      :date => clean_date(date)
+    }
   end
 
-  def encrypt(message, key = key_generator, date = Today.now)
-    encrypt = {}
-    encryption = Encrypt.new(message, key, clean_date(date))
-    encrypt[:encryption] = encryption.encrypted_message
-    encrypt[:key] = key
-    encrypt[:date] = clean_date(date)
-    encrypt
+  def encrypt_message(message, key, date)
+    encrpytion = Encryption.new(message, key, date)
+    encrpytion.encrypted_message
   end
 
   def clean_date(date)
     if date.class == Time
-      date.strftime('%d%m%Y')
+      date.strftime('%d%m%g')
+    elsif date.class == String
+      date
     end
   end
 
