@@ -15,7 +15,7 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_it_can_clean_date
-    date = Time.now
+    date = Time.new(2021, 1, 14)
     assert_equal "140121", @enigma.clean_date(date)
   end
 
@@ -36,14 +36,28 @@ class EnigmaTest < MiniTest::Test
       date:       "040895"}
 
     text = "alexa morales smyth"
+    date = (Time.now).strftime('%d%m%g')
     expect2 = {
       encryption: "u rzuozqkpygloeorhu",
       key:        "70901",
-      date:       "140121"}
+      date:       date}
 
     @enigma.stubs(:key_generator).returns("70901")
     assert_equal "keder ohulw", @enigma.encrypt_message(@text, @key, @date)
     assert_equal expect, @enigma.encrypt(@text, @key, @date)
     assert_equal expect2, @enigma.encrypt(text)
+  end
+
+  def test_it_can_decrypt_a_message
+    encrypted_message = "keder ohulw"
+
+    expect = {
+      decryption: "hello world",
+      key:        "02715",
+      date:       "040895"}
+
+
+    assert_equal "hello world", @enigma.decrypt_message(encrypted_message, @key, @date)
+    assert_equal expect, @enigma.decrypt(encrypted_message, @key, @date)
   end
 end
