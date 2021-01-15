@@ -39,21 +39,13 @@ class EncryptionTest < MiniTest::Test
   end
 
   def test_it_can_assign_text_shift_case_characters
-    skip
-    assert_equal ["h", "o", "r"], @encryption.shift_case_characters
+    assert_equal ["h", "o", "r"], @encryption.shift_case_characters[:A]
     assert_equal ["e", " ", "l"], @encryption.shift_case_characters[:B]
     assert_equal ["l", "w", "d"], @encryption.shift_case_characters[:C]
     assert_equal ["l", "o"], @encryption.shift_case_characters[:D]
   end
-  #
-  # def test_encrypted_characters #keder ohulw
-  #   assert_equal ["k", "r", "u"], @encryption.encrypted_characters[:A]
-  #   assert_equal ["e", " ", "l"], @encryption.encrypted_characters[:B]
-  #   assert_equal ["d", "o", "w"], @encryption.encrypted_characters[:C]
-  #   assert_equal ["e", "r"], @encryption.encrypted_characters[:D]
-  # end
-  #
-  # def test_encrypted_message
-  #   assert_equal "keder ohulw", @encryption.encrypted_message
-  # end
+
+  def test_encrypted_message
+    assert_equal "keder ohulw", @encryption.encrypted_message
+  end
 end
