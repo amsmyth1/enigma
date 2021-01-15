@@ -46,7 +46,6 @@ class DecryptionTest < MiniTest::Test
   end
 
   def test_it_can_assign_text_shift_case_characters
-    skip
     assert_equal ["k", "r", "u"], @decryption.shift_case_characters[:A]
     assert_equal ["e", " ", "l"], @decryption.shift_case_characters[:B]
     assert_equal ["d", "o", "w"], @decryption.shift_case_characters[:C]
@@ -54,7 +53,6 @@ class DecryptionTest < MiniTest::Test
   end
 
   def test_encrypted_message
-    skip
     assert_equal "keder ohulw", @decryption.encrypted_message
   end
 end
