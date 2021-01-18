@@ -1,6 +1,4 @@
 require 'date'
-require './lib/encryption'
-require './lib/decryption'
 require './lib/enigma'
 
 class UserInput
