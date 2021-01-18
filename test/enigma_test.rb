@@ -14,21 +14,6 @@ class EnigmaTest < MiniTest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  def test_it_can_clean_date
-    date = Time.new(2021, 1, 14)
-    assert_equal "140121", @enigma.clean_date(date)
-  end
-
-  def test_it_can_generate_key
-    keys = @enigma.key_generator
-
-    assert_equal String, keys.class
-    assert_equal 5, keys.length
-
-    keys.stubs(:key_generator).returns("00121")
-    assert_equal "00121", keys.key_generator
-  end
-
   def test_it_can_encrypt_a_message
     expect = {
       encryption: "keder ohulw",
