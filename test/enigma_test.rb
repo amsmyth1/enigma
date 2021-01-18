@@ -20,17 +20,8 @@ class EnigmaTest < MiniTest::Test
       key:        "02715",
       date:       "040895"}
 
-    text = "alexa morales smyth"
-    date = (Time.now).strftime('%d%m%g')
-    expect2 = {
-      encryption: "u rzuozqkpygloeorhu",
-      key:        "70901",
-      date:       date}
-
-    @enigma.stubs(:key_generator).returns("70901")
     assert_equal "keder ohulw", @enigma.encrypt_message(@text, @key, @date)
     assert_equal expect, @enigma.encrypt(@text, @key, @date)
-    assert_equal expect2, @enigma.encrypt(text)
   end
 
   def test_it_can_decrypt_a_message
