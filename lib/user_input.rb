@@ -34,7 +34,6 @@ class UserInput
     result = @enigma.encrypt(clean_message, @key, clean_date)
     encrypted_message = result[:encryption]
     write_encrypted_file(encrypted_message)
-    # require 'pry'; binding.pry
     p "Created '#{@output_file.path}' with key #{result[:key]} and date #{result[:date]}"
   end
 
@@ -42,16 +41,16 @@ class UserInput
     @output_file.write(message)
     @output_file.close
   end
+
+  def decrypt
+    result = @enigma.decrypt(clean_message, @key, clean_date)
+    decrypted_message = result[:decryption]
+    write_decrypted_file(decrypted_message)
+    p "Created '#{@output_file.path}' with key #{result[:key]} and date #{result[:date]}"
+  end
+
+  def write_decrypted_file(message)
+    @output_file.write(message)
+    @output_file.close
+  end
 end
-
-
-
-# enigma = Enigma.new
-# user_encrypt = enigma.encrypt(message)
-# encrypted_user_message = user_encrypt[:encryption]
-#
-# encrypted_file = File.open(ARGV[1], "w")
-# encrypted_file.write(encrypted_user_message)
-# encrypted_file.close
-#
-# puts "Created '#{ARGV[1]}' with key #{user_encrypt[:key]} and date #{user_encrypt[:date]}"
