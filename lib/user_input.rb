@@ -31,8 +31,9 @@ class UserInput
   end
 
   def encrypt
-    @enigma.encrypt(clean_message, @key, clean_date)
-    puts "Created '#{ARGV[1]}' with key #{user_encrypt[:key]} and date #{user_encrypt[:date]}"
+    result = @enigma.encrypt(clean_message, @key, clean_date)
+    # require 'pry'; binding.pry
+    p "Created '#{@output_file}' with key #{result[:key]} and date #{result[:date]}"
   end
 
   def encrypted_message
