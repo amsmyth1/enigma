@@ -26,3 +26,9 @@ Monday 5pm Evaluation Rubric
 ### Version Control - 3.5
 - over 70 commits
 - beginning of project did not use branch for first 4 commits
+
+
+TO DO =
+- [ ] Add more tests for edge cases
+- [ ] Rename user_input class to user_info_transfer
+- [ ] merge decrpytion and encryption?
