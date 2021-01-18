@@ -15,7 +15,7 @@ class UserInput
   end
 
   def clean_message
-    user_file.read.strip
+    @user_file.read.strip
   end
 
   def clean_date
@@ -37,7 +37,7 @@ class UserInput
 
   def encrypted_message
     encrypt[:encryption]
-  end 
+  end
 
   def write_encrypted_file
     @output_file.write()

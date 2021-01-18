@@ -12,8 +12,8 @@ class UserInputTest < MiniTest::Test
   end
 
   def test_it_can_clean_date
-    date = Time.new(2021, 1, 14)
-    assert_equal "140121", @user_input.clean_date(date)
+    expect = (Time.new).strftime('%d%m%g')
+    assert_equal expect, @user_input.clean_date
   end
 
   def test_it_can_generate_key
