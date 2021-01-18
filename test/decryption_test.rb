@@ -19,11 +19,15 @@ class DecryptionTest < MiniTest::Test
   end
 
   def test_it_generates_keys_and_offsets
-    assert_equal [:A, :B, :C, :D], @decryption.decryption_shifts.keys
-    assert_equal 3, @decryption.decryption_shifts[:A]
-    assert_equal 27, @decryption.decryption_shifts[:B]
-    assert_equal 73, @decryption.decryption_shifts[:C]
-    assert_equal 20, @decryption.decryption_shifts[:D]
+    assert_equal [:A, :B, :C, :D], @decryption.shifts.keys
+    assert_equal 3, @decryption.shifts[:A]
+    assert_equal 27, @decryption.shifts[:B]
+    assert_equal 73, @decryption.shifts[:C]
+    assert_equal 20, @decryption.shifts[:D]
+    assert_equal 6, @decryption.offset(1)
+    assert_equal 7, @decryption.offset(2)
+    assert_equal 2, @decryption.offset(3)
+    assert_equal 4, @decryption.offset(4)
   end
 
   def test_alpha
@@ -35,13 +39,6 @@ class DecryptionTest < MiniTest::Test
     assert_equal :B, @decryption.alpha(" ", 5)
     assert_equal :C, @decryption.alpha("o", 6)
     assert_equal :D, @decryption.alpha("h", 7)
-  end
-
-  def test_it_can_assign_text_shift_case_characters
-    assert_equal ["k", "r", "u"], @decryption.shift_case_characters[:A]
-    assert_equal ["e", " ", "l"], @decryption.shift_case_characters[:B]
-    assert_equal ["d", "o", "w"], @decryption.shift_case_characters[:C]
-    assert_equal ["e", "h"], @decryption.shift_case_characters[:D]
   end
 
   def test_decrypted_message

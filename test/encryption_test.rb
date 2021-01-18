@@ -19,11 +19,15 @@ class EncryptionTest < MiniTest::Test
   end
 
   def test_it_generates_keys_and_offsets
-    assert_equal [:A, :B, :C, :D], @encryption.encryption_shifts.keys
-    assert_equal 3, @encryption.encryption_shifts[:A]
-    assert_equal 27, @encryption.encryption_shifts[:B]
-    assert_equal 73, @encryption.encryption_shifts[:C]
-    assert_equal 20, @encryption.encryption_shifts[:D]
+    assert_equal [:A, :B, :C, :D], @encryption.shifts.keys
+    assert_equal 3, @encryption.shifts[:A]
+    assert_equal 27, @encryption.shifts[:B]
+    assert_equal 73, @encryption.shifts[:C]
+    assert_equal 20, @encryption.shifts[:D]
+    assert_equal 6, @encryption.offset(1)
+    assert_equal 7, @encryption.offset(2)
+    assert_equal 2, @encryption.offset(3)
+    assert_equal 4, @encryption.offset(4)
   end
 
   def test_alpha
@@ -35,13 +39,6 @@ class EncryptionTest < MiniTest::Test
     assert_equal :B, @encryption.alpha(" ", 5)
     assert_equal :C, @encryption.alpha("w", 6)
     assert_equal :D, @encryption.alpha("o", 7)
-  end
-
-  def test_it_can_assign_text_shift_case_characters
-    assert_equal ["h", "o", "r"], @encryption.shift_case_characters[:A]
-    assert_equal ["e", " ", "l"], @encryption.shift_case_characters[:B]
-    assert_equal ["l", "w", "d"], @encryption.shift_case_characters[:C]
-    assert_equal ["l", "o"], @encryption.shift_case_characters[:D]
   end
 
   def test_encrypted_message
