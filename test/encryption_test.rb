@@ -19,11 +19,11 @@ class EncryptionTest < MiniTest::Test
   end
 
   def test_it_generates_keys_and_offsets
-    assert_equal [:A, :B, :C, :D], @encryption.encryption_shifts.keys
-    assert_equal 3, @encryption.encryption_shifts[:A]
-    assert_equal 27, @encryption.encryption_shifts[:B]
-    assert_equal 73, @encryption.encryption_shifts[:C]
-    assert_equal 20, @encryption.encryption_shifts[:D]
+    assert_equal [:A, :B, :C, :D], @encryption.shifts.keys
+    assert_equal 3, @encryption.shifts[:A]
+    assert_equal 27, @encryption.shifts[:B]
+    assert_equal 73, @encryption.shifts[:C]
+    assert_equal 20, @encryption.shifts[:D]
   end
 
   def test_alpha
