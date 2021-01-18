@@ -13,7 +13,11 @@ class UserInput
   end
 
   def clean_message
-    @user_file.read.strip
+    file_data = @user_file.read.strip
+    file_data.downcase.chars.select do |character|
+      alphabet = (("a".."z").to_a << " ")
+      alphabet.include?(character)
+    end.join
   end
 
   def clean_date
