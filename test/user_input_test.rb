@@ -37,6 +37,23 @@ class UserInputTest < MiniTest::Test
   end
 
   def test_it_can_encrypt_a_message_and_output
-    assert_equal 1, @user_input.encrypt
+    message = "Hello world"
+    key = "02715"
+    date = "040895"
+    user_input = UserInput.new('./test_data/test_message.txt', './test_data/test_output.txt', "02715", "040895")
+    expect = "Created './test_data/test_output.txt' with key 02715 and date 040895"
+
+
+    assert_equal expect, user_input.encrypt
+  end
+
+  def test_it_can_decrypt_a_message
+    message = "hello world"
+    key = "53224"
+    date = "180121"
+    encrypted_message = "kpkjrkvmuwc"
+    decrypt_input = UserInput.new('./test_data/test_output.txt', './test_data/test_decrypted.txt', key, date)
+    expect = "Created './test_data/test_decrypted.txt' with key 53224 and date 180121"
+    assert_equal expect, decrypt_input.decrypt
   end
 end
