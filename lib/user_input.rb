@@ -33,7 +33,7 @@ class UserInput
   def encrypt
     result = @enigma.encrypt(clean_message, @key, clean_date)
     # require 'pry'; binding.pry
-    p "Created '#{@output_file}' with key #{result[:key]} and date #{result[:date]}"
+    p "Created '#{@output_file.path}' with key #{result[:key]} and date #{result[:date]}"
   end
 
   def encrypted_message
