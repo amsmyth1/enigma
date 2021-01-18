@@ -4,11 +4,21 @@ require './lib/user_input'
 class UserInputTest < MiniTest::Test
 
   def setup
-    @user_input = UserInput.new('message.txt', 'encrypted.txt')
+    @user_input = UserInput.new('./test_data/test_message.txt', './test_data/test_output.txt')
   end
 
   def test_it_exists
     assert_instance_of UserInput, @user_input
+  end
+
+  def test_it_has_attributes
+
+    assert_equal File, @user_input.user_file.class
+    assert_equal File, @user_input.output_file.class
+  end
+
+  def test_it_can_clean_message
+    assert_equal "hello world", @user_input.clean_message
   end
 
   def test_it_can_clean_date

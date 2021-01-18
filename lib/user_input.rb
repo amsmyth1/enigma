@@ -4,7 +4,7 @@ require './lib/decryption'
 require './lib/enigma'
 
 class UserInput
-  attr_reader :key
+  attr_reader :key, :user_file, :output_file
 
   def initialize(user_file, output_file, key = key_generator, date = Time.now)
     @user_file = File.open(user_file, "r")
