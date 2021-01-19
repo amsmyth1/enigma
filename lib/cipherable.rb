@@ -1,5 +1,4 @@
 module Cipherable
-
   def shifts
     shifts = {A: 0, B: 0, C: 0, D: 0}
     shifts.each_with_index do |(alpha, shift_number), index|
