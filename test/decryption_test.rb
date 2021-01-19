@@ -41,6 +41,20 @@ class DecryptionTest < MiniTest::Test
     assert_equal :D, @decryption.alpha("h", 7)
   end
 
+  def test_alphabet_index
+    assert_equal 7, @decryption.alphabet_index("h")
+    assert_equal 0, @decryption.alphabet_index("A")
+    assert_equal 8, @decryption.alphabet_index("i")
+    assert_equal 3, @decryption.alphabet_index("d")
+  end
+
+  def test_alphabet
+    assert_equal 27, @decryption.alphabet.count
+    assert_equal " ", @decryption.alphabet.last
+    assert_equal "a", @decryption.alphabet.first
+    assert_equal Array, @decryption.alphabet.class
+  end
+
   def test_decrypted_message
     assert_equal "hello world", @decryption.decrypted_message
   end

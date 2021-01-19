@@ -1,5 +1,4 @@
 module Cipherable
-
   def shifts
     shifts = {A: 0, B: 0, C: 0, D: 0}
     shifts.each_with_index do |(alpha, shift_number), index|
@@ -15,5 +14,14 @@ module Cipherable
   def alpha(character, index)
     shifts = [:A, :B, :C, :D]
     alpha = shifts[(index % 4)]
+  end
+
+  def alphabet_index(character)
+    alphabet = (("a".."z").to_a << " ")
+    alphabet.find_index(character.downcase)
+  end
+
+  def alphabet
+    alphabet = (("a".."z").to_a << " ")
   end
 end

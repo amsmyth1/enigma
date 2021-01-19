@@ -41,6 +41,20 @@ class EncryptionTest < MiniTest::Test
     assert_equal :D, @encryption.alpha("o", 7)
   end
 
+  def test_alphabet_index
+    assert_equal 7, @encryption.alphabet_index("h")
+    assert_equal 0, @encryption.alphabet_index("A")
+    assert_equal 8, @encryption.alphabet_index("i")
+    assert_equal 3, @encryption.alphabet_index("d")
+  end
+
+  def test_alphabet
+    assert_equal 27, @encryption.alphabet.count
+    assert_equal " ", @encryption.alphabet.last
+    assert_equal "a", @encryption.alphabet.first
+    assert_equal Array, @encryption.alphabet.class
+  end
+
   def test_encrypted_message
     assert_equal "keder ohulw", @encryption.encrypted_message
   end
