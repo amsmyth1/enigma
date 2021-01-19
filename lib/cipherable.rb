@@ -20,4 +20,13 @@ module Cipherable
   #   alphabet = (("a".."z").to_a << " ")
   #   crypted_index = (alphabet.find_index(character)) + (shifts[(alpha(character, (index + 4)))])
   # end
+
+  def alphabet_index(character)
+    alphabet = (("a".."z").to_a << " ")
+    alphabet.find_index(character)
+  end
+
+  def alphabet
+    alphabet = (("a".."z").to_a << " ")
+  end 
 end
