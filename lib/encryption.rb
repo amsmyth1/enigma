@@ -15,8 +15,7 @@ class Encryption
   def encrypted_message
     encrypted_message_characters = []
     @message.downcase.chars.each_with_index do |character, index|
-      use_index = index + 4
-      encrypted_index = ((@alphabet.find_index(character)) + (shifts[(alpha(character, use_index))]))
+      encrypted_index = ((@alphabet.find_index(character)) + (shifts[(alpha(character, (index + 4)))]))
       encrypted_message_characters << (@alphabet[(encrypted_index % 27)])
     end
     encrypted_message_characters.join

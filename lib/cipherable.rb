@@ -15,4 +15,9 @@ module Cipherable
     shifts = [:A, :B, :C, :D]
     alpha = shifts[(index % 4)]
   end
+
+  # def crypted_index(character, index)
+  #   alphabet = (("a".."z").to_a << " ")
+  #   crypted_index = (alphabet.find_index(character)) + (shifts[(alpha(character, (index + 4)))])
+  # end
 end
