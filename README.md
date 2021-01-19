@@ -13,20 +13,21 @@ Monday 5pm Evaluation Rubric
 - There was logicl breakdown and flow of information. Module was used.
 
 ### Ruby Conventions and Mechanics - 3.75
-- Code is readable, logical, and managable
+- Code is readable and logical
+- All methods have single responsibility
 - All methods are under 8 lines
 - All classes are under 100 lines
 - Most enumerables are best for the case
-- Class names could be better (-0.25)
 
-### Test Driven Development - 2.75
+### Test Driven Development - 3
 - Test coverage metrics are at 100%
 - Edge cases are accounted for
+- All module methods are tested on classes its included in
+- Simplecov evaluating lib/decryption file (2) times, one tests at 100% one at 46%. I believe my tests are complete, and this is an error on simplecov that I was not able to debug.
 
 ### Version Control - 3.5
-- over 70 commits
-- beginning of project did not use branch for first 4 commits
-
+- Over 85 commits
+- Beginning of project did not use branch for first few commits, corrected behavior for remainder of the project
 
 TO DO =
 - [x] Add more tests for edge cases
