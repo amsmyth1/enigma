@@ -1,4 +1,4 @@
-require './lib/user_input'
+require './lib/user_info_transfer'
 
-user_input = UserInfoTransfer.new(ARGV[0], ARGV[1])
-user_input.encrypt
+user_info_transfer = UserInfoTransfer.new(ARGV[0], ARGV[1])
+user_info_transfer.encrypt
