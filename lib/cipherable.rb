@@ -16,17 +16,12 @@ module Cipherable
     alpha = shifts[(index % 4)]
   end
 
-  # def crypted_index(character, index)
-  #   alphabet = (("a".."z").to_a << " ")
-  #   crypted_index = (alphabet.find_index(character)) + (shifts[(alpha(character, (index + 4)))])
-  # end
-
   def alphabet_index(character)
     alphabet = (("a".."z").to_a << " ")
-    alphabet.find_index(character)
+    alphabet.find_index(character.downcase)
   end
 
   def alphabet
     alphabet = (("a".."z").to_a << " ")
-  end 
+  end
 end
