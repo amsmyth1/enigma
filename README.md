@@ -29,6 +29,6 @@ Monday 5pm Evaluation Rubric
 
 
 TO DO =
-- [ ] Add more tests for edge cases
+- [x] Add more tests for edge cases
 - [x] Rename user_input class to user_info_transfer
 - [ ] merge decrpytion and encryption?
