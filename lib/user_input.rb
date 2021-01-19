@@ -1,7 +1,7 @@
 require 'date'
 require './lib/enigma'
 
-class UserInput
+class UserInfoTransfer
   attr_reader :key, :user_file, :output_file
 
   def initialize(user_file, output_file, key = key_generator, date = Time.now)
